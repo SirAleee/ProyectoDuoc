@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio de Maestro</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="Maestros"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+  <ion-item *ngFor="let gustavo of gustavos">
+    <img [src]="gustavo.foto" />
+    <ion-label>{{gustavo.nombre}}</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Profesor: Walter White</ion-label>
+  </ion-item>
+ 
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Sección de alumnos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+   <br>
+   <br>
+    <ion-list>
+      <ion-item>
+        <ion-select interface="alert" placeholder="Seleccione la clase">
+          <ion-select-option value="1">Aplicaciones Mobiles</ion-select-option>
+          <ion-select-option value="2">Arquitectura de Software</ion-select-option>
+          <ion-select-option value="3">Calidad de Software</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+   
+  
+   <br>
+   <br>
+    <ion-list>
+      <ion-item>
+        <ion-select interface="alert" placeholder="Seleccione la sección">
+          <ion-select-option value="4">001D</ion-select-option>
+          <ion-select-option value="5">002D</ion-select-option>
+          <ion-select-option value="6">003D</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <br>
+  
+  
+  
+    <br>
+    <br>
+  
+    <ion-button (click)="generar(opciones, opcioness, mensajee, RouterLink)" color="success"  shape="round" expand="block">
+      <ion-icon slot="end" name="qr-code-outline"></ion-icon>
+      Generar QR
+    </ion-button>
+  
+  </ion-content>

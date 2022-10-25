@@ -18,8 +18,8 @@ export class AlumnosPage implements OnInit {
     this.ests = [
       {
         id    : 2,
-        nombre: 'Alumno Jesse Pinkman ',
-        foto  : 'https://i.pinimg.com/736x/99/1c/87/991c878d0d164ce7353f7c514e178950--breakin-bad-breaking-bad-jesse.jpg'
+        nombre: 'Alumno Duoc uc ',
+        foto  : 'https://cfvod.kaltura.com/p/3457153/sp/345715300/thumbnail/entry_id/1_oe72p6ar/version/100001/width/412/height/248'
       }
     ];
    }

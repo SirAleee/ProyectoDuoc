@@ -4,6 +4,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-item *ngFor="let est of ests">
+  <ion-avatar slot="start">
+    <img [src]="est.foto" />
+  </ion-avatar>
+  <ion-label>{{est.nombre}}</ion-label>
+</ion-item>
 
+<ion-content>
+  <ion-button expand="block" (click)="takePicture()">Tomar foto</ion-button>
+  <img [src]="picture" />
 </ion-content>
+
+<ng-container>
+  <ion-button [routerLink]="['/home']" expand="block" fill="clear" color="warning">
+    Inicio
+  </ion-button>
+</ng-container>

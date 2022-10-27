@@ -9,53 +9,69 @@ import {Router} from '@angular/router';
 })
 export class MaestrosPage implements OnInit {
   pumas : any;
-  nombre  : String;
-  apellido: String;
-  correo  : String;
+
+  correo    : any;
+  password   : any;
   mensaje : String;
   
   constructor(private alertController: AlertController,
     private toastController: ToastController, private router:Router) {
-      this.pumas = [
-        {
-          id    : 1,
-          nombre: 'Profesor Walter White ',
-          foto  : 'https://i.pinimg.com/474x/53/ab/b1/53abb17e44791c1d4cb0dbcf5e672c75.jpg'
-        }
-      ];
-     }
+    this.pumas = [
+      {
+        id    : 1,
+        nombre: 'Profesor Duoc uc ',
+        foto  : 'https://cfvod.kaltura.com/p/3457153/sp/345715300/thumbnail/entry_id/1_oe72p6ar/version/100001/width/412/height/248'
+      }
+    ];
+   }
 
-  ngOnInit() {
-  }
-  async grabar(nom: HTMLInputElement, ape: HTMLInputElement, correo: HTMLInputElement)
+ngOnInit() {
+}
+async link(correo: HTMLInputElement, password: HTMLInputElement)
+{
+  if(correo.value == "")
   {
-    if(nom.value == "")
-    {
-      const toast = await this.toastController.create({
-        message : "Falta escribir el nombre",
-        duration: 2000
-      })
-      toast.present();
-    }
-    else if(ape.value == "")
-    {
-      const toast = await this.toastController.create({
-        message : "Falta escribir el apellido",
-        duration: 2000
-      })
-      toast.present();
-    }
-    else if(correo.value == "")
-    {
-      const toast = await this.toastController.create({
-        message : "Falta escribir el correo",
-        duration: 2000
-      })
-      toast.present();
-    }
-    else
-    {
-      this.router.navigate(['/ini-maestro']);
-      };
-    }
+    
+    const toast = await this.toastController.create({
+      
+      message : "Ingrese el nombre del usuario",
+      duration: 1000
+    })
+    toast.present();
+    return;
   }
+
+  else if(password.value == "")
+  {
+    const toast = await this.toastController.create({
+      message : "Ingrese contraseña",
+      duration: 1000
+    })
+    toast.present();
+    return;
+  }
+  else if(correo.value != "Walter@duocuc.cl")
+  {
+    const toast = await this.toastController.create({
+      message : "Usuario invalido",
+      duration: 1000
+    })
+    toast.present();
+    return;
+  }
+  else if(password.value != "1234")
+  {
+    const toast = await this.toastController.create({
+      message : "Contraseña invalida",
+      duration: 1000
+    })
+    toast.present();
+    return;
+  }
+
+  else if(correo.value == "Walter@duocuc.cl", password.value == "1234")
+  {
+    this.router.navigate(['/ini-maestro']);
+    };
+  }
+}

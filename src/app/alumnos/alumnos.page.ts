@@ -9,10 +9,11 @@ import { AlertController, ToastController } from '@ionic/angular';
 })
 export class AlumnosPage implements OnInit {
   ests : any;
-  nombre  : String;
-  apellido: String;
-  correo  : String;
+  
+  correo    : any;
+  password   : any;
   mensaje : String;
+
   constructor(private alertController: AlertController,
     private toastController: ToastController, private router:Router) { 
     this.ests = [
@@ -26,33 +27,49 @@ export class AlumnosPage implements OnInit {
 
 ngOnInit() {
 }
-async grabar(nom: HTMLInputElement, ape: HTMLInputElement, correo: HTMLInputElement)
+async grabar(correo: HTMLInputElement, password: HTMLInputElement)
 {
-  if(nom.value == "")
+  if(correo.value == "")
   {
+    
     const toast = await this.toastController.create({
-      message : "Falta escribir el nombre",
-      duration: 2000
+      
+      message : "Ingrese el nombre del usuario",
+      duration: 1000
     })
     toast.present();
+    return;
   }
-  else if(ape.value == "")
+
+  else if(password.value == "")
   {
     const toast = await this.toastController.create({
-      message : "Falta escribir el apellido",
-      duration: 2000
+      message : "Ingrese contraseña",
+      duration: 1000
     })
     toast.present();
+    return;
   }
-  else if(correo.value == "")
+  else if(correo.value != "Jesse@duocuc.cl")
   {
     const toast = await this.toastController.create({
-      message : "Falta escribir el correo",
-      duration: 2000
+      message : "Usuario invalido",
+      duration: 1000
     })
     toast.present();
+    return;
   }
-  else
+  else if(password.value != "1234")
+  {
+    const toast = await this.toastController.create({
+      message : "Contraseña invalida",
+      duration: 1000
+    })
+    toast.present();
+    return;
+  }
+
+  else if(correo.value == "Jesse@duocuc.cl", password.value == "1234")
   {
     this.router.navigate(['/camera']);
     };

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>alumnos</ion-title>
+    <ion-title>Login Alumnos</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content>
+  
   <ion-item *ngFor="let est of ests">
     <ion-avatar slot="start">
       <img [src]="est.foto" />
@@ -16,22 +17,22 @@
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">Nombre</ion-label>
-    <ion-input #nombre></ion-input>
+    <ion-label position="floating">Usuario</ion-label>
+    <ion-input #usuario placeholder="Correo@duocuc.cl"></ion-input>
   </ion-item>
+
   <ion-item>
-  <ion-label position="floating">Apellido</ion-label>
-    <ion-input #apellido></ion-input>
-  </ion-item> 
-  <ion-item>
-    <ion-label position="floating">Correo</ion-label>
-    <ion-input #correo></ion-input>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input #password type="password" placeholder="*******"></ion-input>
   </ion-item>
+  <div *ngIf="mensaje;">       
+    <h3 id="Error">Mensaje: {{mensaje}}</h3>
+  </div>
   
 </ion-content>
 
 <ng-container>
-  <ion-button (click)="grabar(nombre, apellido, correo, RouterLink)" expand="block" fill="clear" color="warning">
+  <ion-button (click)="grabar(usuario,password, RouterLink)" expand="block" fill="clear" color="warning">
     Iniciar sesión
   </ion-button>
 </ng-container>
